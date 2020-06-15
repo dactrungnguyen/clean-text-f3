@@ -3,17 +3,17 @@ provider:
   name: openfaas
   gateway: http://172.17.0.2:31112
 functions:
-  clean-text:
+  clean-text-f3--v0-0:
     namespace: f3-openfaas-fn-local
     handler: .
-    image: dtndocker2/clean-text:v0.11
+    image: f3models.azurecr.io/clean-text-f3:v0.0
     environment:
       read_timeout:  "300s"  # Maximum time to read HTTP request
       write_timeout: "300s"  # Maximum time to write HTTP response
       upstream_timeout: "290s"  # Maximum duration of upstream function call
       combine_output: false  # separate logs from result
     secrets:
-      - dockerhub
+    - f3models
     labels:
       com.openfaas.scale.min: 1
       com.openfaas.scale.max: 10
