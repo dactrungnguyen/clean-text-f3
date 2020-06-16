@@ -5,5 +5,5 @@ from src.back.lib import clean_text
 
 
 if __name__ == "__main__":
-    sleep(5)
+    sleep(30)
     print(clean_text(stdin.read()))
